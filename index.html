@@ -234,7 +234,7 @@
     <h2><span class="ico" aria-hidden="true">🏠</span>Trip Dates &amp; Lodging</h2>
     <div class="card">
       <dl class="facts">
-        <div><dt>Arrive</dt><dd><span class="todo">Add arrival date, Dec __</span></dd></div>
+        <div><dt>Arrive</dt><dd>Fri, Dec 18, 2026</dd></div>
         <div><dt>Depart</dt><dd><span class="todo">Add departure date, Dec __</span></dd></div>
         <div class="wide"><dt>Where we're staying</dt><dd><span class="todo">Add condo / hotel name</span></dd></div>
         <div class="wide">
@@ -444,7 +444,7 @@
 (function () {
   // ---- Countdown ----
   // Update TRIP_START to the real arrival date (YYYY-MM-DD) to turn this on.
-  var TRIP_START = null; // e.g. "2026-12-20"
+  var TRIP_START = "2026-12-18";
   var cd = document.getElementById('countdown');
   if (TRIP_START) {
     var days = Math.ceil((new Date(TRIP_START + 'T00:00:00') - new Date()) / 86400000);
