@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12304a">
+<title>Copper Mountain Family Ski Trip</title>
+<meta name="description" content="Our family ski trip to Copper Mountain, Colorado: lodging, itinerary, packing list, resort links, and contacts.">
+<style>
+  :root {
+    --night: #12304a;
+    --pine: #1f4d45;
+    --glacier: #4a90b8;
+    --ice: #e8f2f8;
+    --snow: #f7fafc;
+    --ink: #1b2733;
+    --muted: #5b6b7a;
+    --line: #d5e2ec;
+    --copper: #c26a2e;
+    --card: #ffffff;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--snow);
+    line-height: 1.55;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  a { color: var(--glacier); }
+  h1, h2, h3 { line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+
+  /* Hero */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(18,48,74,0) 40%, rgba(18,48,74,.5) 100%),
+      linear-gradient(160deg, var(--night) 0%, #1d4a6b 55%, var(--glacier) 100%);
+    color: #fff;
+    padding: calc(env(safe-area-inset-top) + 48px) 20px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 56px;
+    background: var(--snow);
+    clip-path: polygon(0 100%, 0 70%, 12% 45%, 22% 62%, 36% 25%, 50% 58%, 63% 35%, 78% 68%, 90% 48%, 100% 72%, 100% 100%);
+  }
+  .hero-inner { max-width: 720px; margin: 0 auto; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600;
+    color: #bfe0f2; margin: 0 0 10px;
+  }
+  .hero h1 { font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 800; }
+  .hero p.sub { margin: 12px 0 0; font-size: 1.05rem; color: #dcecf5; max-width: 34em; }
+  .countdown {
+    display: inline-block; margin-top: 22px; padding: 8px 16px;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; font-weight: 600; font-size: .95rem;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(247,250,252,.92);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav ul {
+    list-style: none; margin: 0 auto; padding: 8px 14px; max-width: 720px;
+    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar { display: none; }
+  nav a {
+    display: block; white-space: nowrap; text-decoration: none;
+    padding: 8px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600;
+    color: var(--night); background: var(--ice);
+  }
+  nav a:active { background: var(--line); }
+
+  main { max-width: 720px; margin: 0 auto; padding: 8px 16px 48px; }
+  section { margin-top: 32px; scroll-margin-top: 64px; }
+  section > h2 {
+    font-size: 1.45rem; color: var(--night); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  section > h2 .ico {
+    display: inline-grid; place-items: center; width: 36px; height: 36px;
+    border-radius: 10px; background: var(--ice); font-size: 1.15rem;
+  }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px;
+    box-shadow: 0 1px 2px rgba(18,48,74,.04), 0 6px 18px rgba(18,48,74,.05);
+  }
+  .card + .card { margin-top: 12px; }
+
+  /* Key/value rows */
+  dl.facts { margin: 0; display: grid; gap: 14px; }
+  dl.facts div { display: grid; gap: 2px; }
+  dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; }
+  dd { margin: 0; font-size: 1.05rem; font-weight: 500; }
+  @media (min-width: 560px) { dl.facts { grid-template-columns: 1fr 1fr; } dl.facts .wide { grid-column: 1 / -1; } }
+
+  /* Placeholder highlight so nothing gets missed */
+  .todo {
+    background: #fff4d6; color: #7a5200; border-radius: 6px; padding: 0 6px;
+    font-weight: 600; font-size: .95em;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+    padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: .95rem;
+    text-decoration: none; background: var(--night); color: #fff;
+  }
+  .btn.alt { background: var(--ice); color: var(--night); }
+  .btn:active { transform: scale(.98); }
+
+  /* Itinerary */
+  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--line);
+  }
+  .timeline li { position: relative; padding-left: 40px; }
+  .timeline li + li { margin-top: 14px; }
+  .timeline li::before {
+    content: ""; position: absolute; left: 4px; top: 22px; width: 16px; height: 16px;
+    border-radius: 50%; background: var(--glacier); border: 3px solid var(--snow);
+    box-shadow: 0 0 0 2px var(--glacier);
+  }
+  .timeline li.arrive::before, .timeline li.depart::before { background: var(--copper); box-shadow: 0 0 0 2px var(--copper); }
+  .day-tag {
+    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--pine); background: #dff0ea; border-radius: 6px; padding: 2px 8px; margin-bottom: 6px;
+  }
+  .timeline h3 { font-size: 1.1rem; color: var(--night); margin-bottom: 6px; }
+  .timeline ul { margin: 6px 0 0; padding-left: 1.1em; color: var(--ink); }
+  .timeline li li { padding: 0; }
+  .timeline li li::before { display: none; }
+  .timeline ul li + li { margin-top: 4px; }
+
+  /* Checklist */
+  .progress-wrap { margin-bottom: 14px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+  .bar { height: 10px; background: var(--ice); border-radius: 999px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--glacier), var(--pine)); border-radius: 999px; transition: width .25s ease; }
+  .group + .group { margin-top: 18px; }
+  .group h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 4px; }
+  .check {
+    display: flex; align-items: center; gap: 14px; min-height: 48px;
+    padding: 6px 2px; border-bottom: 1px solid var(--line); cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .group .check:last-child { border-bottom: 0; }
+  .check input {
+    appearance: none; -webkit-appearance: none; flex: none;
+    width: 26px; height: 26px; margin: 0; border-radius: 8px;
+    border: 2px solid #9db6c7; background: #fff; display: grid; place-content: center;
+    transition: background .15s, border-color .15s;
+  }
+  .check input::after {
+    content: ""; width: 12px; height: 7px; border-left: 3px solid #fff; border-bottom: 3px solid #fff;
+    transform: rotate(-45deg) scale(0); margin-top: -3px; transition: transform .12s ease;
+  }
+  .check input:checked { background: var(--pine); border-color: var(--pine); }
+  .check input:checked::after { transform: rotate(-45deg) scale(1); }
+  .check input:focus-visible { outline: 3px solid var(--glacier); outline-offset: 2px; }
+  .check span { font-size: 1.02rem; }
+  .check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: #9db6c7; }
+  .reset { margin-top: 16px; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 10px; padding: 10px 14px; font: inherit; font-size: .9rem; font-weight: 600; min-height: 44px; cursor: pointer; }
+  .note { font-size: .85rem; color: var(--muted); margin: 10px 0 0; }
+
+  /* Resort links */
+  .links { display: grid; gap: 10px; }
+  @media (min-width: 560px) { .links { grid-template-columns: 1fr 1fr; } }
+  .link-card {
+    display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px;
+    min-height: 68px; box-shadow: 0 1px 2px rgba(18,48,74,.04);
+  }
+  .link-card:active { background: var(--ice); }
+  .link-card .ico { font-size: 1.6rem; flex: none; }
+  .link-card strong { display: block; color: var(--night); font-size: 1.02rem; }
+  .link-card small { color: var(--muted); font-size: .85rem; }
+  .link-card .arrow { margin-left: auto; color: var(--glacier); font-weight: 700; }
+
+  /* Contacts */
+  .contact {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  .contact:last-child { border-bottom: 0; }
+  .contact .who { font-weight: 600; }
+  .contact .role { display: block; font-size: .85rem; color: var(--muted); font-weight: 400; }
+  .contact a.tel {
+    flex: none; text-decoration: none; font-weight: 700; color: #fff; background: var(--pine);
+    padding: 10px 14px; border-radius: 12px; min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .contact.emergency a.tel { background: #b3372d; }
+
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 8px 16px 40px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Family Ski Trip &middot; Colorado</p>
+    <h1>Copper Mountain</h1>
+    <p class="sub">Everything we need in one place: where we're staying, what we're doing each day, and what to pack.</p>
+    <div class="countdown" id="countdown" aria-live="polite">December 2026</div>
+  </div>
+</header>
+
+<nav aria-label="Page sections">
+  <ul>
+    <li><a href="#stay">Dates &amp; Lodging</a></li>
+    <li><a href="#itinerary">Itinerary</a></li>
+    <li><a href="#packing">Packing</a></li>
+    <li><a href="#resort">Resort Info</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- TRIP DATES & LODGING -->
+  <section id="stay">
+    <h2><span class="ico" aria-hidden="true">🏠</span>Trip Dates &amp; Lodging</h2>
+    <div class="card">
+      <dl class="facts">
+        <div><dt>Arrive</dt><dd><span class="todo">Add arrival date, Dec __</span></dd></div>
+        <div><dt>Depart</dt><dd><span class="todo">Add departure date, Dec __</span></dd></div>
+        <div class="wide"><dt>Where we're staying</dt><dd><span class="todo">Add condo / hotel name</span></dd></div>
+        <div class="wide">
+          <dt>Address</dt>
+          <dd><span class="todo">Add street address</span></dd>
+        </div>
+        <div><dt>Check-in</dt><dd><span class="todo">Add time</span></dd></div>
+        <div><dt>Check-out</dt><dd><span class="todo">Add time</span></dd></div>
+        <div class="wide"><dt>Confirmation #</dt><dd><span class="todo">Add confirmation number</span></dd></div>
+      </dl>
+      <p style="margin:16px 0 0">
+        <a class="btn alt" href="https://www.google.com/maps/search/?api=1&query=Copper+Mountain+Resort+Colorado" target="_blank" rel="noopener">📍 Open in Maps</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- DAILY ITINERARY -->
+  <section id="itinerary">
+    <h2><span class="ico" aria-hidden="true">🗓️</span>Daily Itinerary</h2>
+    <ol class="timeline">
+      <li class="arrive">
+        <div class="card">
+          <span class="day-tag">Arrival Day</span>
+          <h3>Travel &amp; settle in</h3>
+          <ul>
+            <li><span class="todo">Flight / drive details</span></li>
+            <li>Check in, unpack, grab groceries</li>
+            <li>Pick up rentals and lift tickets if needed</li>
+            <li>Early dinner and early bedtime</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="day-tag">Ski Day 1</span>
+          <h3>Ease in</h3>
+          <ul>
+            <li>Gear up and be on the lift by <span class="todo">time</span></li>
+            <li>Warm-up runs on easier terrain</li>
+            <li>Lunch break and hot chocolate</li>
+            <li>Afternoon runs, then apr&egrave;s at the condo</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="day-tag">Ski Day 2</span>
+          <h3>Explore the mountain</h3>
+          <ul>
+            <li><span class="todo">Lessons / group plans / who skis where</span></li>
+            <li>Meet-up for lunch at <span class="todo">spot</span></li>
+            <li>Evening: games, movie, or dinner out</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="card">
+          <span class="day-tag">Ski Day 3</span>
+          <h3>Favorite runs &amp; flex day</h3>
+          <ul>
+            <li>Repeat everyone's favorites from earlier days</li>
+            <li>Rest-day option: sledding, hot tub, or a stroll through the village</li>
+            <li><span class="todo">Add more ski days as needed</span></li>
+          </ul>
+        </div>
+      </li>
+      <li class="depart">
+        <div class="card">
+          <span class="day-tag">Departure Day</span>
+          <h3>Pack up &amp; head home</h3>
+          <ul>
+            <li>Check out by <span class="todo">time</span></li>
+            <li>Return rental gear, final walkthrough of the condo</li>
+            <li>Check the road and weather before driving</li>
+            <li><span class="todo">Flight / drive details</span></li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- PACKING CHECKLIST -->
+  <section id="packing">
+    <h2><span class="ico" aria-hidden="true">🎿</span>Gear &amp; Packing Checklist</h2>
+    <div class="card">
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="progress-text">0 of 0 packed</span><span id="progress-pct">0%</span></div>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><span id="bar-fill"></span></div>
+      </div>
+
+      <div class="group" data-group="Layers &amp; Clothing">
+        <h3>Layers &amp; Clothing</h3>
+        <label class="check"><input type="checkbox"><span>Base layers (top &amp; bottom)</span></label>
+        <label class="check"><input type="checkbox"><span>Mid layers (fleece / puffy)</span></label>
+        <label class="check"><input type="checkbox"><span>Waterproof ski jacket</span></label>
+        <label class="check"><input type="checkbox"><span>Ski pants / bibs</span></label>
+        <label class="check"><input type="checkbox"><span>Ski socks (3+ pairs, no cotton)</span></label>
+        <label class="check"><input type="checkbox"><span>Casual clothes &amp; sweaters for evenings</span></label>
+        <label class="check"><input type="checkbox"><span>Snow boots for walking around</span></label>
+      </div>
+
+      <div class="group" data-group="On the Mountain">
+        <h3>On the Mountain</h3>
+        <label class="check"><input type="checkbox"><span>Helmets (everyone!)</span></label>
+        <label class="check"><input type="checkbox"><span>Goggles</span></label>
+        <label class="check"><input type="checkbox"><span>Gloves or mittens + spare pair</span></label>
+        <label class="check"><input type="checkbox"><span>Neck gaiter / balaclava</span></label>
+        <label class="check"><input type="checkbox"><span>Hand &amp; toe warmers</span></label>
+        <label class="check"><input type="checkbox"><span>Skis / snowboard / boots (or rental reservation)</span></label>
+        <label class="check"><input type="checkbox"><span>Lift tickets or Epic / Ikon passes</span></label>
+        <label class="check"><input type="checkbox"><span>Small backpack for snacks &amp; water</span></label>
+      </div>
+
+      <div class="group" data-group="Health &amp; Comfort">
+        <h3>Health &amp; Comfort</h3>
+        <label class="check"><input type="checkbox"><span>Sunscreen (SPF 30+) &amp; lip balm</span></label>
+        <label class="check"><input type="checkbox"><span>Sunglasses</span></label>
+        <label class="check"><input type="checkbox"><span>Moisturizer &amp; water bottles (altitude is dry)</span></label>
+        <label class="check"><input type="checkbox"><span>Medications &amp; basic first aid</span></label>
+        <label class="check"><input type="checkbox"><span>Ibuprofen / pain relievers for sore legs</span></label>
+      </div>
+
+      <div class="group" data-group="Travel &amp; Tech">
+        <h3>Travel &amp; Tech</h3>
+        <label class="check"><input type="checkbox"><span>IDs &amp; boarding passes</span></label>
+        <label class="check"><input type="checkbox"><span>Phone chargers &amp; power bank</span></label>
+        <label class="check"><input type="checkbox"><span>Snow chains / traction check for the car</span></label>
+        <label class="check"><input type="checkbox"><span>Snacks, games &amp; books for the kids</span></label>
+      </div>
+
+      <button class="reset" id="reset" type="button">Reset my checklist</button>
+      <p class="note">Checks are saved on your own phone. Everyone gets their own list.</p>
+    </div>
+  </section>
+
+  <!-- RESORT INFO -->
+  <section id="resort">
+    <h2><span class="ico" aria-hidden="true">🏔️</span>Resort Info</h2>
+    <div class="links">
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-lift-info/trail-map" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">🗺️</span>
+        <span><strong>Trail Maps</strong><small>Terrain &amp; lift layout</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-lift-info/lift-and-trail-status" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">🚡</span>
+        <span><strong>Lift &amp; Trail Status</strong><small>What's open today</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/snow-weather/snow-report" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">❄️</span>
+        <span><strong>Snow Report</strong><small>Conditions &amp; new snow</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="link-card" href="https://forecast.weather.gov/MapClick.php?lat=39.4817&lon=-106.1507" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">🌨️</span>
+        <span><strong>Weather Forecast</strong><small>National Weather Service</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="link-card" href="https://www.cotrip.org/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">🚗</span>
+        <span><strong>I-70 Road Conditions</strong><small>CDOT live traffic &amp; closures</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="link-card" href="https://www.coppercolorado.com/" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">🏠</span>
+        <span><strong>Copper Mountain Home</strong><small>Tickets, rentals, dining</small></span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <p class="note">Resort websites sometimes rearrange their pages. If a link lands on the wrong page, use the menu on the resort's home page.</p>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <h2><span class="ico" aria-hidden="true">📞</span>Emergency &amp; Group Contacts</h2>
+    <div class="card">
+      <div class="contact emergency">
+        <div class="who">Emergency<span class="role">Police, fire, ambulance</span></div>
+        <a class="tel" href="tel:911">Call 911</a>
+      </div>
+      <div class="contact">
+        <div class="who"><span class="todo">Resort / lodging front desk</span><span class="role">Check-in questions, lockouts</span></div>
+        <a class="tel" href="tel:">Call</a>
+      </div>
+      <div class="contact">
+        <div class="who"><span class="todo">Name: trip organizer</span><span class="role">Group lead</span></div>
+        <a class="tel" href="tel:">Call</a>
+      </div>
+      <div class="contact">
+        <div class="who"><span class="todo">Name: family member</span><span class="role">Group member</span></div>
+        <a class="tel" href="tel:">Call</a>
+      </div>
+      <div class="contact">
+        <div class="who"><span class="todo">Name: emergency contact at home</span><span class="role">Not on the trip</span></div>
+        <a class="tel" href="tel:">Call</a>
+      </div>
+      <p class="note">Set a meeting spot on the mountain each morning in case anyone gets separated, and save the Copper Ski Patrol number from your trail map in your phone.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>Have a great trip! ⛷️</footer>
+
+<script>
+(function () {
+  // ---- Countdown ----
+  // Update TRIP_START to the real arrival date (YYYY-MM-DD) to turn this on.
+  var TRIP_START = null; // e.g. "2026-12-20"
+  var cd = document.getElementById('countdown');
+  if (TRIP_START) {
+    var days = Math.ceil((new Date(TRIP_START + 'T00:00:00') - new Date()) / 86400000);
+    cd.textContent = days > 1 ? days + ' days to go' : days === 1 ? 'Tomorrow!' : days === 0 ? 'Today!' : 'Trip in progress';
+  }
+
+  // ---- Packing checklist (saved per device) ----
+  var KEY = 'copper-ski-checklist-v1';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+
+  function idFor(box) {
+    var group = box.closest('.group').getAttribute('data-group');
+    return group + '|' + box.nextElementSibling.textContent;
+  }
+  function save() {
+    var state = {};
+    boxes.forEach(function (b) { if (b.checked) state[idFor(b)] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function update() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    var pct = boxes.length ? Math.round(done / boxes.length * 100) : 0;
+    document.getElementById('progress-text').textContent = done + ' of ' + boxes.length + ' packed';
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('bar-fill').style.width = pct + '%';
+    document.getElementById('bar').setAttribute('aria-valuenow', pct);
+  }
+
+  boxes.forEach(function (b) {
+    b.checked = !!saved[idFor(b)];
+    b.addEventListener('change', function () { save(); update(); });
+  });
+  document.getElementById('reset').addEventListener('click', function () {
+    if (!confirm('Uncheck everything on your list?')) return;
+    boxes.forEach(function (b) { b.checked = false; });
+    save(); update();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
