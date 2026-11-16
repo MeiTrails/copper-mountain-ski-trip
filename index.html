@@ -35,9 +35,7 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    background:
-      linear-gradient(180deg, rgba(18,48,74,0) 40%, rgba(18,48,74,.5) 100%),
-      linear-gradient(160deg, var(--night) 0%, #1d4a6b 55%, var(--glacier) 100%);
+    background: var(--night);
     color: #fff;
     padding: calc(env(safe-area-inset-top) + 40px) 16px 84px;
     position: relative; overflow: hidden;
@@ -46,6 +44,9 @@
     content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 56px; background: var(--snow);
     clip-path: polygon(0 100%, 0 70%, 12% 45%, 22% 62%, 36% 25%, 50% 58%, 63% 35%, 78% 68%, 90% 48%, 100% 72%, 100% 100%);
   }
+  .scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero h1, .hero .eyebrow, .hero p.sub { text-shadow: 0 1px 14px rgba(8,24,40,.55); }
+  .hero .upnext { margin-top: 150px; }
   .hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
   .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600; color: #bfe0f2; margin: 0 0 10px; }
   .hero h1 { font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 800; }
@@ -173,6 +174,48 @@
 <body>
 
 <header class="hero">
+  <svg class="scene" viewBox="0 0 1600 720" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0d2a44"/><stop offset=".38" stop-color="#2b6a95"/><stop offset=".62" stop-color="#8fc0dc"/><stop offset=".8" stop-color="#dcecf5"/>
+      </linearGradient>
+      <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfeaf2"/></linearGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff4dc" stop-opacity=".9"/><stop offset="1" stop-color="#fff4dc" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1600" height="720" fill="url(#sky)"/>
+    <g transform="translate(400 0)">
+    <circle cx="610" cy="250" r="90" fill="url(#glow)"/>
+    <path d="M-400 330 L-330 300 L-250 340 L-170 295 L-90 345 L6 400 L6 720 L-400 720 Z M794 310 L880 330 L960 290 L1040 335 L1120 300 L1200 330 L1200 720 L794 720 Z" fill="#a9c8db"/>
+    <path d="M-400 450 C-300 440 -100 470 6 480 L6 720 L-400 720 Z M794 430 C900 445 1000 440 1200 450 L1200 720 L794 720 Z" fill="#eaf3f9"/>
+    <!-- far range -->
+    <path d="M0 400 L70 330 L140 365 L215 290 L290 345 L345 305 L420 352 L500 300 L575 350 L650 285 L725 340 L800 310 L800 720 L0 720 Z" fill="#a9c8db"/>
+    <path d="M215 290 L238 312 L222 318 L206 308 Z M650 285 L672 305 L655 312 L640 302 Z M500 300 L520 322 L503 326 L488 316 Z" fill="#f2f8fc"/>
+    <!-- main massif, lit faces -->
+    <path d="M60 470 L190 330 L262 292 L305 262 L352 238 L392 250 L422 198 L462 238 L508 252 L552 244 L598 280 L668 340 L760 470 L760 720 L60 720 Z" fill="url(#lit)"/>
+    <!-- shadow faces -->
+    <path d="M422 198 L462 238 L508 252 L552 244 L598 280 L668 340 L760 470 L620 480 L560 400 L520 330 L470 290 L440 250 Z" fill="#9dbbd2" opacity=".85"/>
+    <path d="M352 238 L392 250 L422 198 L408 262 L380 330 L330 380 L290 330 L305 262 Z" fill="#c4d9e7" opacity=".9"/>
+    <path d="M190 330 L262 292 L305 262 L290 330 L240 400 L150 440 Z" fill="#b6cfe0" opacity=".8"/>
+    <!-- ridge lines and couloirs -->
+    <g fill="none" stroke="#7fa4be" stroke-width="2" stroke-linecap="round" opacity=".7">
+      <path d="M422 198 L430 260 L452 330 L438 410"/>
+      <path d="M392 250 L396 310 L372 380"/>
+      <path d="M508 252 L520 300 L545 360 L535 430"/>
+      <path d="M598 280 L590 340 L610 410"/>
+      <path d="M305 262 L312 330 L290 400"/>
+    </g>
+    <!-- summit snow -->
+    <path d="M422 198 L441 222 L430 226 L420 218 L408 230 L402 220 Z" fill="#ffffff"/>
+    <!-- lower slopes and pines -->
+    <path d="M0 480 C120 430 220 450 330 420 C440 395 520 440 620 425 C700 415 760 440 800 430 L800 720 L0 720 Z" fill="#eaf3f9"/>
+    <rect x="-400" y="486" width="1600" height="240" fill="#eaf3f9"/>
+    <g fill="#183c36">
+      <path d="M40 470 l14 -42 l14 42 z M64 478 l12 -34 l12 34 z M96 466 l16 -48 l16 48 z M126 480 l12 -36 l12 36 z M150 470 l14 -42 l14 42 z"/>
+      <path d="M640 466 l14 -42 l14 42 z M668 476 l12 -36 l12 36 z M696 464 l16 -48 l16 48 z M726 478 l12 -34 l12 34 z M752 468 l14 -42 l14 42 z"/>
+    </g>
+    <g fill="#ffffff" opacity=".85"><circle cx="90" cy="150" r="2"/><circle cx="240" cy="110" r="1.6"/><circle cx="330" cy="170" r="2"/><circle cx="470" cy="120" r="1.8"/><circle cx="560" cy="170" r="2"/><circle cx="700" cy="130" r="2"/><circle cx="150" cy="230" r="1.5"/><circle cx="660" cy="220" r="1.6"/></g>
+      </g>
+  </svg>
   <div class="hero-inner">
     <p class="eyebrow">Family Ski Trip &middot; Dec 17&ndash;23, 2026</p>
     <h1>Copper Mountain</h1>
