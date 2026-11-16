@@ -130,10 +130,11 @@
   .row .c .sub { font-size: .88rem; color: var(--muted); }
 
   /* ---------- Lists ---------- */
-  ul.plain { list-style: none; margin: 0; padding: 0; }
-  ul.plain li { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px solid var(--line); }
-  ul.plain li:last-child { border-bottom: 0; }
-  ul.plain li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 11px; height: 11px; border: 2px solid var(--glacier); border-radius: 50%; }
+  .todolist .check:last-child { border-bottom: 0; }
+  .check.todo { align-items: flex-start; padding: 12px 2px; }
+  .check.todo input { border-radius: 50%; margin-top: 1px; }
+  .check.todo input::after { width: 12px; height: 12px; border: 0; border-radius: 50%; background: #fff; margin-top: 0; transform: scale(0); }
+  .check.todo input:checked::after { transform: scale(1); }
   .pack { display: grid; gap: 18px; }
   .pack h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 6px; }
   .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
@@ -346,16 +347,17 @@
   <section id="todo">
     <h2><span class="ico" aria-hidden="true">&#128221;</span>To Do</h2>
     <div class="card">
-      <ul class="plain">
-        <li>Book Holiday Inn Express in Amarillo for Thu, Dec 17.</li>
-        <li>Reserve ski and snowboard rentals at Virgin Islands Ski Rental, <a href="tel:+19704686655">(970) 468-6655</a>. Confirm Friday Dec 18 pickup hours. Booking online is 20% off, but the discount does not apply Dec 24 to Jan 1.</li>
-        <li>Confirm Gavin's lesson meeting time and place in the confirmation email.</li>
-        <li>Confirm which 3 of the 5 days the lift tickets cover.</li>
-        <li>Dec 21: decide the plan after arriving. If going to the hot springs, check winter hours and whether reservations are needed.</li>
-        <li>Plan where to stay on the night of Dec 23 for the drive home.</li>
-        <li>Add group phone numbers to the contacts below.</li>
-      </ul>
+      <div class="todolist">
+        <label class="check todo"><input type="radio" name="todo1" value="1"><span>Book Holiday Inn Express in Amarillo for Thu, Dec 17.</span></label>
+        <label class="check todo"><input type="radio" name="todo2" value="1"><span>Reserve ski and snowboard rentals at Virgin Islands Ski Rental, <a href="tel:+19704686655">(970) 468-6655</a>. Confirm Friday Dec 18 pickup hours. Booking online is 20% off, but the discount does not apply Dec 24 to Jan 1.</span></label>
+        <label class="check todo"><input type="radio" name="todo3" value="1"><span>Confirm Gavin's lesson meeting time and place in the confirmation email.</span></label>
+        <label class="check todo"><input type="radio" name="todo4" value="1"><span>Confirm which 3 of the 5 days the lift tickets cover.</span></label>
+        <label class="check todo"><input type="radio" name="todo5" value="1"><span>Dec 21: decide the plan after arriving. If going to the hot springs, check winter hours and whether reservations are needed.</span></label>
+        <label class="check todo"><input type="radio" name="todo6" value="1"><span>Plan where to stay on the night of Dec 23 for the drive home.</span></label>
+        <label class="check todo"><input type="radio" name="todo7" value="1"><span>Add group phone numbers to the contacts below.</span></label>
+      </div>
     </div>
+    <p class="note">Taps are saved on your own phone only. The list itself is kept up to date on this page.</p>
   </section>
 
   <!-- PACKING -->
@@ -443,9 +445,27 @@
 (function () {
   'use strict';
 
+  /* ---------- To-do radio toggles (saved on this device only) ---------- */
+  (function () {
+    var KEY = 'copper-ski-todo-v1', radios = Array.prototype.slice.call(document.querySelectorAll('.check.todo input')), saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    function save() {
+      var st = {}; radios.forEach(function (r) { if (r.checked) { st[r.name] = 1; } });
+      try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+    }
+    radios.forEach(function (r) {
+      r.checked = !!saved[r.name];
+      r.dataset.was = r.checked ? '1' : '';
+      r.addEventListener('click', function () {
+        if (r.dataset.was === '1') { r.checked = false; r.dataset.was = ''; } else { r.dataset.was = '1'; }
+        save();
+      });
+    });
+  })();
+
   /* ---------- Packing checklist (saved on this device only) ---------- */
   (function () {
-    var KEY = 'copper-ski-packing-v1', boxes = Array.prototype.slice.call(document.querySelectorAll('.check input')), saved = {};
+    var KEY = 'copper-ski-packing-v1', boxes = Array.prototype.slice.call(document.querySelectorAll('#packing .check input')), saved = {};
     try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
     function idFor(b) { return b.closest('div.pack > div').querySelector('h3').textContent + '|' + b.nextElementSibling.textContent; }
     function refresh() {
