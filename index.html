@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#12304a">
+<meta name="robots" content="noindex">
 <title>Copper Mountain Family Ski Trip</title>
-<meta name="description" content="Our family ski trip to Copper Mountain, Colorado: lodging, itinerary, packing list, resort links, and contacts.">
+<meta name="description" content="Family ski trip, Dec 17-23, 2026: route, bookings, day-by-day plan, and contacts.">
 <style>
   :root {
     --night: #12304a;
@@ -17,6 +18,7 @@
     --muted: #5b6b7a;
     --line: #d5e2ec;
     --copper: #c26a2e;
+    --violet: #7a5fa8;
     --card: #ffffff;
     --radius: 16px;
   }
@@ -25,496 +27,541 @@
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--ink);
-    background: var(--snow);
-    line-height: 1.55;
+    color: var(--ink); background: var(--snow); line-height: 1.55;
     padding-bottom: env(safe-area-inset-bottom);
   }
   a { color: var(--glacier); }
   h1, h2, h3 { line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
 
-  /* Hero */
+  /* ---------- Hero ---------- */
   .hero {
     background:
       linear-gradient(180deg, rgba(18,48,74,0) 40%, rgba(18,48,74,.5) 100%),
       linear-gradient(160deg, var(--night) 0%, #1d4a6b 55%, var(--glacier) 100%);
     color: #fff;
-    padding: calc(env(safe-area-inset-top) + 48px) 20px 64px;
-    position: relative;
-    overflow: hidden;
+    padding: calc(env(safe-area-inset-top) + 40px) 16px 84px;
+    position: relative; overflow: hidden;
   }
   .hero::after {
-    content: "";
-    position: absolute; left: 0; right: 0; bottom: -1px; height: 56px;
-    background: var(--snow);
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 56px; background: var(--snow);
     clip-path: polygon(0 100%, 0 70%, 12% 45%, 22% 62%, 36% 25%, 50% 58%, 63% 35%, 78% 68%, 90% 48%, 100% 72%, 100% 100%);
   }
-  .hero-inner { max-width: 720px; margin: 0 auto; }
-  .eyebrow {
-    text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600;
-    color: #bfe0f2; margin: 0 0 10px;
-  }
+  .hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 600; color: #bfe0f2; margin: 0 0 10px; }
   .hero h1 { font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 800; }
-  .hero p.sub { margin: 12px 0 0; font-size: 1.05rem; color: #dcecf5; max-width: 34em; }
-  .countdown {
-    display: inline-block; margin-top: 22px; padding: 8px 16px;
-    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
-    border-radius: 999px; font-weight: 600; font-size: .95rem;
-  }
+  .hero p.sub { margin: 10px 0 20px; font-size: 1.02rem; color: #dcecf5; }
 
-  /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(247,250,252,.92);
-    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+  /* ---------- Up next ---------- */
+  .upnext {
+    background: #fff; color: var(--ink); border-radius: 20px; padding: 18px;
+    box-shadow: 0 10px 30px rgba(8,24,40,.35);
   }
-  nav ul {
-    list-style: none; margin: 0 auto; padding: 8px 14px; max-width: 720px;
-    display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
+  .upnext .label { margin: 0 0 4px; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--copper); }
+  .upnext h2 { font-size: 1.3rem; color: var(--night); }
+  .upnext .when { margin: 6px 0 0; font-weight: 600; }
+  .upnext .local { margin: 2px 0 0; font-size: .85rem; color: var(--muted); }
+  .cd { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 16px 0; }
+  .cd div { background: var(--ice); border-radius: 12px; padding: 10px 4px 8px; text-align: center; }
+  .cd b { display: block; font-size: clamp(1.7rem, 9vw, 2.5rem); line-height: 1; color: var(--night); font-variant-numeric: tabular-nums; }
+  .cd span { display: block; margin-top: 4px; font-size: .68rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; }
+
+  /* ---------- Nav ---------- */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(247,250,252,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav ul { list-style: none; margin: 0 auto; padding: 8px 14px; max-width: 720px; display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   nav ul::-webkit-scrollbar { display: none; }
-  nav a {
-    display: block; white-space: nowrap; text-decoration: none;
-    padding: 8px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600;
-    color: var(--night); background: var(--ice);
-  }
+  nav a { display: block; white-space: nowrap; text-decoration: none; padding: 8px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600; color: var(--night); background: var(--ice); }
   nav a:active { background: var(--line); }
 
   main { max-width: 720px; margin: 0 auto; padding: 8px 16px 48px; }
   section { margin-top: 32px; scroll-margin-top: 64px; }
-  section > h2 {
-    font-size: 1.45rem; color: var(--night); margin-bottom: 14px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  section > h2 .ico {
-    display: inline-grid; place-items: center; width: 36px; height: 36px;
-    border-radius: 10px; background: var(--ice); font-size: 1.15rem;
-  }
+  section > h2 { font-size: 1.45rem; color: var(--night); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  section > h2 .ico { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--ice); font-size: 1.15rem; }
 
-  .card {
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 18px;
-    box-shadow: 0 1px 2px rgba(18,48,74,.04), 0 6px 18px rgba(18,48,74,.05);
-  }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: 0 1px 2px rgba(18,48,74,.04), 0 6px 18px rgba(18,48,74,.05); }
   .card + .card { margin-top: 12px; }
+  .card h3 { font-size: 1.08rem; color: var(--night); margin-bottom: 10px; }
 
-  /* Key/value rows */
-  dl.facts { margin: 0; display: grid; gap: 14px; }
+  dl.facts { margin: 0; display: grid; gap: 12px; }
   dl.facts div { display: grid; gap: 2px; }
-  dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; }
-  dd { margin: 0; font-size: 1.05rem; font-weight: 500; }
-  @media (min-width: 560px) { dl.facts { grid-template-columns: 1fr 1fr; } dl.facts .wide { grid-column: 1 / -1; } }
+  dt { font-size: .74rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); font-weight: 600; }
+  dd { margin: 0; font-size: 1rem; font-weight: 500; }
+  @media (min-width: 560px) { dl.facts.two { grid-template-columns: 1fr 1fr; } dl.facts .wide { grid-column: 1 / -1; } }
 
-  /* Placeholder highlight so nothing gets missed */
-  .todo {
-    background: #fff4d6; color: #7a5200; border-radius: 6px; padding: 0 6px;
-    font-weight: 600; font-size: .95em;
-  }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
-    padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: .95rem;
-    text-decoration: none; background: var(--night); color: #fff;
-  }
+  .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 12px; font-weight: 600; font-size: .95rem; text-decoration: none; background: var(--night); color: #fff; }
   .btn.alt { background: var(--ice); color: var(--night); }
   .btn:active { transform: scale(.98); }
 
-  /* Itinerary */
-  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
-  .timeline::before {
-    content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--line);
-  }
-  .timeline li { position: relative; padding-left: 40px; }
-  .timeline li + li { margin-top: 14px; }
-  .timeline li::before {
-    content: ""; position: absolute; left: 4px; top: 22px; width: 16px; height: 16px;
-    border-radius: 50%; background: var(--glacier); border: 3px solid var(--snow);
-    box-shadow: 0 0 0 2px var(--glacier);
-  }
-  .timeline li.arrive::before, .timeline li.depart::before { background: var(--copper); box-shadow: 0 0 0 2px var(--copper); }
-  .day-tag {
-    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--pine); background: #dff0ea; border-radius: 6px; padding: 2px 8px; margin-bottom: 6px;
-  }
-  .timeline h3 { font-size: 1.1rem; color: var(--night); margin-bottom: 6px; }
-  .timeline ul { margin: 6px 0 0; padding-left: 1.1em; color: var(--ink); }
-  .timeline li li { padding: 0; }
-  .timeline li li::before { display: none; }
-  .timeline ul li + li { margin-top: 4px; }
+  .badge { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+  .badge.booked { background: #dff0ea; color: var(--pine); }
+  .badge.ahead { background: #fff1d6; color: #8a5a00; }
+  .badge.flex { background: var(--ice); color: var(--night); }
 
-  /* Checklist */
-  .progress-wrap { margin-bottom: 14px; }
-  .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
-  .bar { height: 10px; background: var(--ice); border-radius: 999px; overflow: hidden; }
-  .bar > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--glacier), var(--pine)); border-radius: 999px; transition: width .25s ease; }
-  .group + .group { margin-top: 18px; }
-  .group h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 4px; }
-  .check {
-    display: flex; align-items: center; gap: 14px; min-height: 48px;
-    padding: 6px 2px; border-bottom: 1px solid var(--line); cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .group .check:last-child { border-bottom: 0; }
-  .check input {
-    appearance: none; -webkit-appearance: none; flex: none;
-    width: 26px; height: 26px; margin: 0; border-radius: 8px;
-    border: 2px solid #9db6c7; background: #fff; display: grid; place-content: center;
-    transition: background .15s, border-color .15s;
-  }
-  .check input::after {
-    content: ""; width: 12px; height: 7px; border-left: 3px solid #fff; border-bottom: 3px solid #fff;
-    transform: rotate(-45deg) scale(0); margin-top: -3px; transition: transform .12s ease;
-  }
-  .check input:checked { background: var(--pine); border-color: var(--pine); }
-  .check input:checked::after { transform: rotate(-45deg) scale(1); }
-  .check input:focus-visible { outline: 3px solid var(--glacier); outline-offset: 2px; }
-  .check span { font-size: 1.02rem; }
-  .check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: #9db6c7; }
-  .reset { margin-top: 16px; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 10px; padding: 10px 14px; font: inherit; font-size: .9rem; font-weight: 600; min-height: 44px; cursor: pointer; }
+  /* ---------- Map ---------- */
+  .mapwrap { background: #fbfdff; border: 1px solid var(--line); border-radius: var(--radius); padding: 8px; }
+  .map svg { display: block; width: 100%; height: auto; }
+  .map text { font-family: "Bradley Hand", "Segoe Print", "Marker Felt", "Comic Sans MS", cursive; fill: #1b2733; }
+  .legend { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; font-size: .92rem; }
+  .legend li { display: flex; align-items: flex-start; gap: 10px; }
+  .legend i { flex: none; width: 26px; height: 0; border-top: 4px solid; margin-top: 10px; border-radius: 2px; }
+  .legend i.dash { border-top-style: dashed; }
   .note { font-size: .85rem; color: var(--muted); margin: 10px 0 0; }
 
-  /* Resort links */
+  /* ---------- Days ---------- */
+  .day { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 6px; box-shadow: 0 1px 2px rgba(18,48,74,.04), 0 6px 18px rgba(18,48,74,.05); }
+  .day + .day { margin-top: 14px; }
+  .day-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .date { flex: none; width: 54px; text-align: center; border-radius: 12px; background: var(--night); color: #fff; padding: 6px 0 7px; }
+  .date small { display: block; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+  .date b { display: block; font-size: 1.35rem; line-height: 1.1; }
+  .day-head h3 { font-size: 1.12rem; color: var(--night); }
+  .day-head p { margin: 2px 0 0; font-size: .85rem; color: var(--muted); }
+  details.route { margin: 4px 0 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--snow); }
+  details.route summary { cursor: pointer; list-style: none; padding: 10px 14px; min-height: 44px; font-weight: 600; font-size: .92rem; color: var(--night); display: flex; align-items: center; justify-content: space-between; }
+  details.route summary::-webkit-details-marker { display: none; }
+  details.route summary::after { content: "+"; font-size: 1.3rem; color: var(--glacier); }
+  details.route[open] summary::after { content: "\2212"; }
+  .route-body { padding: 0 10px 12px; }
+  .route-body .btn { margin-top: 10px; width: 100%; justify-content: center; }
+  .row { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+  .row .t { font-weight: 700; font-size: .86rem; color: var(--night); }
+  .row .t small { display: block; color: var(--muted); font-weight: 500; font-size: .76rem; }
+  .row .c p { margin: 0; }
+  .row .c p + p { margin-top: 4px; }
+  .row .c .sub { font-size: .88rem; color: var(--muted); }
+
+  /* ---------- Lists ---------- */
+  ul.plain { list-style: none; margin: 0; padding: 0; }
+  ul.plain li { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px solid var(--line); }
+  ul.plain li:last-child { border-bottom: 0; }
+  ul.plain li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 11px; height: 11px; border: 2px solid var(--glacier); border-radius: 50%; }
+  .pack { display: grid; gap: 18px; }
+  .pack h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 6px; }
+  .pack ul { margin: 0; padding-left: 1.2em; }
+  .pack li { padding: 3px 0; }
+
+  /* ---------- Links & contacts ---------- */
   .links { display: grid; gap: 10px; }
   @media (min-width: 560px) { .links { grid-template-columns: 1fr 1fr; } }
-  .link-card {
-    display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit;
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px;
-    min-height: 68px; box-shadow: 0 1px 2px rgba(18,48,74,.04);
-  }
+  .link-card { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-height: 68px; box-shadow: 0 1px 2px rgba(18,48,74,.04); }
   .link-card:active { background: var(--ice); }
   .link-card .ico { font-size: 1.6rem; flex: none; }
   .link-card strong { display: block; color: var(--night); font-size: 1.02rem; }
   .link-card small { color: var(--muted); font-size: .85rem; }
   .link-card .arrow { margin-left: auto; color: var(--glacier); font-weight: 700; }
-
-  /* Contacts */
-  .contact {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    padding: 12px 0; border-bottom: 1px solid var(--line);
-  }
+  .contact { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
   .contact:last-child { border-bottom: 0; }
   .contact .who { font-weight: 600; }
   .contact .role { display: block; font-size: .85rem; color: var(--muted); font-weight: 400; }
-  .contact a.tel {
-    flex: none; text-decoration: none; font-weight: 700; color: #fff; background: var(--pine);
-    padding: 10px 14px; border-radius: 12px; min-height: 44px; display: inline-flex; align-items: center;
-  }
+  .contact a.tel { flex: none; text-decoration: none; font-weight: 700; color: #fff; background: var(--pine); padding: 10px 14px; border-radius: 12px; min-height: 44px; display: inline-flex; align-items: center; }
   .contact.emergency a.tel { background: #b3372d; }
 
-  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 8px 16px 40px; }
+  footer { text-align: center; color: var(--muted); font-size: .84rem; padding: 8px 20px 40px; max-width: 720px; margin: 0 auto; }
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="hero-inner">
-    <p class="eyebrow">Family Ski Trip &middot; Colorado</p>
+    <p class="eyebrow">Family Ski Trip &middot; Dec 17&ndash;23, 2026</p>
     <h1>Copper Mountain</h1>
-    <p class="sub">Everything we need in one place: where we're staying, what we're doing each day, and what to pack.</p>
-    <div class="countdown" id="countdown" aria-live="polite">December 2026</div>
+    <p class="sub">Katy, Texas to Copper Mountain, Colorado, by road.</p>
+
+    <div class="upnext" id="upnext" aria-live="polite">
+      <p class="label">Up next</p>
+      <h2 id="un-title">Leave Katy, TX</h2>
+      <p class="when" id="un-when">Thu, Dec 17 &middot; 7:30 AM CST (UTC&minus;6)</p>
+      <p class="local" id="un-local"></p>
+      <div class="cd" id="cd">
+        <div><b id="cd-d">0</b><span>days</span></div>
+        <div><b id="cd-h">0</b><span>hours</span></div>
+        <div><b id="cd-m">0</b><span>min</span></div>
+        <div><b id="cd-s">0</b><span>sec</span></div>
+      </div>
+      <a class="btn alt" id="un-map" href="https://www.google.com/maps/search/?api=1&amp;query=Katy%2C+TX" target="_blank" rel="noopener">&#128205; Open in Maps</a>
+    </div>
   </div>
 </header>
 
 <nav aria-label="Page sections">
   <ul>
-    <li><a href="#stay">Dates &amp; Lodging</a></li>
+    <li><a href="#overview">Route</a></li>
+    <li><a href="#bookings">Bookings</a></li>
     <li><a href="#itinerary">Itinerary</a></li>
+    <li><a href="#todo">To do</a></li>
     <li><a href="#packing">Packing</a></li>
-    <li><a href="#resort">Resort Info</a></li>
+    <li><a href="#resort">Resort</a></li>
     <li><a href="#contacts">Contacts</a></li>
   </ul>
 </nav>
 
 <main>
 
-  <!-- TRIP DATES & LODGING -->
-  <section id="stay">
-    <h2><span class="ico" aria-hidden="true">🏠</span>Trip Dates &amp; Lodging</h2>
+  <!-- ROUTE OVERVIEW -->
+  <section id="overview">
+    <h2><span class="ico" aria-hidden="true">&#128506;&#65039;</span>Route Overview</h2>
+    <div class="mapwrap"><div class="map" id="overview-map" role="img" aria-label="Sketch map of the route from Katy, Texas through Amarillo, Englewood and Silverthorne to Copper Mountain, with a day trip to Glenwood Springs."></div></div>
+    <ul class="legend">
+      <li><i style="border-color:#4a90b8"></i><span><b>Thu Dec 17</b> &middot; Katy to Amarillo</span></li>
+      <li><i style="border-color:#c26a2e"></i><span><b>Fri Dec 18</b> &middot; Amarillo, Englewood, Silverthorne, Copper</span></li>
+      <li><i style="border-color:#1f4d45"></i><span><b>Dec 19, 20, 22</b> &middot; Ski days at Copper</span></li>
+      <li><i class="dash" style="border-color:#7a5fa8"></i><span><b>Mon Dec 21</b> &middot; Flexible day, hot springs option in Glenwood Springs</span></li>
+      <li><i class="dash" style="border-color:#5b6b7a"></i><span><b>Wed Dec 23</b> &middot; Copper, Silverthorne, then home</span></li>
+    </ul>
+    <p class="note">&#9790; Nights: Dec 17 in Amarillo, Dec 18&ndash;22 at Copper Mountain Lodging. Sketch is not to scale.</p>
+  </section>
+
+  <!-- CONFIRMED BOOKINGS -->
+  <section id="bookings">
+    <h2><span class="ico" aria-hidden="true">&#9989;</span>Confirmed Bookings</h2>
+
     <div class="card">
-      <dl class="facts">
-        <div><dt>Arrive</dt><dd>Fri, Dec 18, 2026</dd></div>
-        <div><dt>Depart</dt><dd>Wed, Dec 23, 2026 <span style="color:var(--muted);font-weight:400">(5 nights)</span></dd></div>
-        <div class="wide"><dt>Where we're staying</dt><dd>Copper Mountain Lodging</dd></div>
-        <div class="wide">
-          <dt>Address</dt>
-          <dd>
-            <a href="https://www.google.com/maps/search/?api=1&query=509+Copper+Road+Copper+Mountain+CO+80443" target="_blank" rel="noopener" style="color:inherit">509 Copper Road, Copper Mountain, CO 80443</a>
-            <span style="display:block;color:var(--muted);font-size:.85rem;font-weight:400">Copper Lodging check-in per the resort's contact page. Confirm your exact building in your booking email.</span>
-          </dd>
-        </div>
-        <div><dt>Check-in</dt><dd>After 4:00 PM</dd></div>
-        <div><dt>Check-out</dt><dd>Before 11:00 AM</dd></div>
-        <div class="wide"><dt>Overnight on the way</dt><dd>Thu, Dec 17: Holiday Inn Express, Amarillo, TX</dd></div>
-        <div class="wide"><dt>Confirmation #</dt><dd><span class="todo">Add confirmation number</span></dd></div>
+      <h3>Lodging <span class="badge booked">Confirmed</span></h3>
+      <dl class="facts two">
+        <div class="wide"><dt>Where</dt><dd>Copper Mountain Lodging &middot; Telemark Studio</dd></div>
+        <div><dt>Check-in</dt><dd>Fri, Dec 18 &middot; after 4:00 PM MST</dd></div>
+        <div><dt>Check-out</dt><dd>Wed, Dec 23 &middot; before 11:00 AM MST</dd></div>
+        <div><dt>Stay</dt><dd>5 nights &middot; 4 adults</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+18668412549">866-841-2549</a> <span style="color:var(--muted);font-weight:400">(reservations and lodging help)</span></dd></div>
+        <div class="wide"><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=509+Copper+Road+Copper+Mountain+CO+80443" target="_blank" rel="noopener" style="color:inherit">509 Copper Road, Copper Mountain, CO 80443</a></dd></div>
       </dl>
-      <p style="margin:16px 0 0">
-        <a class="btn alt" href="https://www.google.com/maps/search/?api=1&query=509+Copper+Road+Copper+Mountain+CO+80443" target="_blank" rel="noopener">📍 Open in Maps</a>
-      </p>
     </div>
-  </section>
 
-  <!-- DAILY ITINERARY -->
-  <section id="itinerary">
-    <h2><span class="ico" aria-hidden="true">🗓️</span>Daily Itinerary</h2>
-    <ol class="timeline">
-      <li>
-        <div class="card">
-          <span class="day-tag">Drive Day 1 &middot; Thu Dec 17</span>
-          <h3>Katy, TX to Amarillo, TX</h3>
-          <ul>
-            <li>Leave Katy early, fill up the tank and check tire pressure before heading out</li>
-            <li>Overnight at Holiday Inn Express, Amarillo. <span class="todo">Add which location and address</span></li>
-            <li>Check the forecast for the Texas panhandle and Colorado before you go</li>
-          </ul>
-        </div>
-      </li>
-      <li class="arrive">
-        <div class="card">
-          <span class="day-tag">Arrival &middot; Fri Dec 18</span>
-          <h3>Travel &amp; settle in</h3>
-          <ul>
-            <li>Drive Day 2: Amarillo to Copper Mountain. Leave early so you reach the rental shop before it closes.</li>
-            <li>On the way to Copper: pick up ski rentals at <a href="https://www.google.com/maps/search/?api=1&query=Virgin+Islands+Ski+Rental+241+Summit+Pl+Dillon+CO+80435" target="_blank" rel="noopener">Virgin Islands Ski Rental</a> (241 Summit Pl, Dillon). <span class="todo">Confirm pickup hours</span></li>
-            <li>Check in after 4:00 PM, unpack, grab groceries</li>
-            <li>Lift tickets: plan on a full access pass at $99 per day</li>
-            <li>Early dinner and early bedtime</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <span class="day-tag">Ski Day 1 &middot; Sat Dec 19</span>
-          <h3>Ease in</h3>
-          <ul>
-            <li><strong>Gavin: 1-day snowboard lesson</strong> &mdash; meet at <span class="todo">time / meeting spot</span></li>
-            <li>Gear up and be on the lift by <span class="todo">time</span></li>
-            <li>Warm-up runs on easier terrain for everyone else</li>
-            <li>Lunch break and hot chocolate</li>
-            <li>Afternoon runs, then apr&egrave;s at the condo</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <span class="day-tag">Ski Day 2 &middot; Sun Dec 20</span>
-          <h3>Explore the mountain</h3>
-          <ul>
-            <li><span class="todo">Lessons / group plans / who skis where</span></li>
-            <li>Meet-up for lunch at <span class="todo">spot</span></li>
-            <li>Evening: games, movie, or dinner out</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <span class="day-tag">Day 3 &middot; Mon Dec 21</span>
-          <h3>Relax day at Iron Mountain Hot Springs</h3>
-          <ul>
-            <li>Rest the legs with a soak in Glenwood Springs, roughly a 1.5 to 2 hour drive west on I-70</li>
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Iron+Mountain+Hot+Springs+281+Centennial+St+Glenwood+Springs+CO+81601" target="_blank" rel="noopener">Iron Mountain Hot Springs</a> &middot; 281 Centennial St &middot; <a href="tel:+19709454766">(970) 945-4766</a></li>
-            <li><span class="todo">Confirm winter hours and whether to reserve</span> (<a href="https://ironmountainhotsprings.com/faqs" target="_blank" rel="noopener">FAQs</a>)</li>
-            <li>Check <a href="https://www.cotrip.org/" target="_blank" rel="noopener">I-70 conditions</a> before leaving. Pack swimsuits and towels.</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div class="card">
-          <span class="day-tag">Ski Day 4 &middot; Tue Dec 22</span>
-          <h3>Last day &amp; flex day</h3>
-          <ul>
-            <li>One more morning on the slopes</li>
-            <li>Rest-day option: sledding, hot tub, or a stroll through the village</li>
-            <li>Start packing in the evening for an easy checkout</li>
-          </ul>
-        </div>
-      </li>
-      <li class="depart">
-        <div class="card">
-          <span class="day-tag">Departure &middot; Wed Dec 23</span>
-          <h3>Pack up &amp; head home</h3>
-          <ul>
-            <li>Check out before 11:00 AM</li>
-            <li>Return rental gear, final walkthrough of the condo</li>
-            <li>Check the road and weather before driving</li>
-            <li>Drive home to Katy. <span class="todo">Add return overnight stop plan</span></li>
-          </ul>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <!-- PACKING CHECKLIST -->
-  <section id="packing">
-    <h2><span class="ico" aria-hidden="true">🎿</span>Gear &amp; Packing Checklist</h2>
     <div class="card">
-      <div class="progress-wrap">
-        <div class="progress-label"><span id="progress-text">0 of 0 packed</span><span id="progress-pct">0%</span></div>
-        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><span id="bar-fill"></span></div>
-      </div>
+      <h3>Lift tickets <span class="badge booked">Confirmed</span></h3>
+      <dl class="facts two">
+        <div><dt>Ticket</dt><dd>Adult 3-Day Ticket</dd></div>
+        <div><dt>Days</dt><dd>3 of 5 days</dd></div>
+        <div class="wide"><dt>Pickup</dt><dd>Copper Mountain Lodging check-in desk</dd></div>
+      </dl>
+    </div>
 
-      <div class="group" data-group="Layers &amp; Clothing">
-        <h3>Layers &amp; Clothing</h3>
-        <label class="check"><input type="checkbox"><span>Base layers (top &amp; bottom)</span></label>
-        <label class="check"><input type="checkbox"><span>Mid layers (fleece / puffy)</span></label>
-        <label class="check"><input type="checkbox"><span>Waterproof ski jacket</span></label>
-        <label class="check"><input type="checkbox"><span>Ski pants / bibs</span></label>
-        <label class="check"><input type="checkbox"><span>Ski socks (3+ pairs, no cotton)</span></label>
-        <label class="check"><input type="checkbox"><span>Casual clothes &amp; sweaters for evenings</span></label>
-        <label class="check"><input type="checkbox"><span>Snow boots for walking around</span></label>
-      </div>
-
-      <div class="group" data-group="On the Mountain">
-        <h3>On the Mountain</h3>
-        <label class="check"><input type="checkbox"><span>Helmets (everyone!)</span></label>
-        <label class="check"><input type="checkbox"><span>Goggles</span></label>
-        <label class="check"><input type="checkbox"><span>Gloves or mittens + spare pair</span></label>
-        <label class="check"><input type="checkbox"><span>Neck gaiter / balaclava</span></label>
-        <label class="check"><input type="checkbox"><span>Hand &amp; toe warmers</span></label>
-        <label class="check"><input type="checkbox"><span>Skis / snowboard / boots (or rental reservation)</span></label>
-        <label class="check"><input type="checkbox"><span>Full access lift passes ($99/day)</span></label>
-        <label class="check"><input type="checkbox"><span>Small backpack for snacks &amp; water</span></label>
-      </div>
-
-      <div class="group" data-group="Health &amp; Comfort">
-        <h3>Health &amp; Comfort</h3>
-        <label class="check"><input type="checkbox"><span>Sunscreen (SPF 30+) &amp; lip balm</span></label>
-        <label class="check"><input type="checkbox"><span>Sunglasses</span></label>
-        <label class="check"><input type="checkbox"><span>Moisturizer &amp; water bottles (altitude is dry)</span></label>
-        <label class="check"><input type="checkbox"><span>Swimsuits &amp; towels (hot springs day)</span></label>
-        <label class="check"><input type="checkbox"><span>Medications &amp; basic first aid</span></label>
-        <label class="check"><input type="checkbox"><span>Ibuprofen / pain relievers for sore legs</span></label>
-      </div>
-
-      <div class="group" data-group="Travel &amp; Tech">
-        <h3>Travel &amp; Tech</h3>
-        <label class="check"><input type="checkbox"><span>IDs &amp; boarding passes</span></label>
-        <label class="check"><input type="checkbox"><span>Phone chargers &amp; power bank</span></label>
-        <label class="check"><input type="checkbox"><span>Snow chains / traction check for the car</span></label>
-        <label class="check"><input type="checkbox"><span>Snacks, games &amp; books for the kids</span></label>
-      </div>
-
-      <button class="reset" id="reset" type="button">Reset my checklist</button>
-      <p class="note">Checks are saved on your own phone. Everyone gets their own list.</p>
+    <div class="card">
+      <h3>Snowboard lesson <span class="badge booked">Confirmed</span></h3>
+      <dl class="facts two">
+        <div><dt>For</dt><dd>Gavin</dd></div>
+        <div><dt>Date</dt><dd>Sat, Dec 19</dd></div>
+        <div class="wide"><dt>Lesson</dt><dd>Adult First Time Full Day Snowboard Lesson, Copper Mountain</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- RESORT INFO -->
-  <section id="resort">
-    <h2><span class="ico" aria-hidden="true">🏔️</span>Resort Info</h2>
-    <div class="links">
-      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-area-maps/winter-trail-map/" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">🗺️</span>
-        <span><strong>Trail Maps</strong><small>Terrain &amp; lift layout</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-lift-info/winter-trail-report/" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">🚡</span>
-        <span><strong>Lift &amp; Trail Status</strong><small>What's open today</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-area-maps/tracker-app/" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">📱</span>
-        <span><strong>Copper Mountain App</strong><small>Live trail tracking on your phone</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="link-card" href="https://forecast.weather.gov/MapClick.php?lat=39.4817&lon=-106.1507" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">🌨️</span>
-        <span><strong>Weather Forecast</strong><small>National Weather Service</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="link-card" href="https://www.cotrip.org/" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">🚗</span>
-        <span><strong>I-70 Road Conditions</strong><small>CDOT live traffic &amp; closures</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="link-card" href="https://www.coppercolorado.com/" target="_blank" rel="noopener">
-        <span class="ico" aria-hidden="true">🏠</span>
-        <span><strong>Copper Mountain Home</strong><small>Tickets, rentals, dining</small></span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
+  <!-- DAY BY DAY -->
+  <section id="itinerary">
+    <h2><span class="ico" aria-hidden="true">&#128467;&#65039;</span>Day by Day</h2>
+    <p class="note" style="margin:-4px 0 14px">CST = Central (Katy, Amarillo), UTC&minus;6. MST = Mountain (Colorado), UTC&minus;7.</p>
+
+    <!-- Dec 17 -->
+    <article class="day" id="d17">
+      <div class="day-head"><div class="date"><small>Dec</small><b>17</b></div><div><h3>Katy to Amarillo</h3><p>Thursday &middot; Drive day 1</p></div></div>
+      <details class="route"><summary>Route map</summary><div class="route-body">
+        <div class="map" data-route="katy,amarillo" data-color="#4a90b8"></div>
+        <a class="btn alt" href="https://www.google.com/maps/dir/?api=1&amp;origin=Katy%2C+TX&amp;destination=Amarillo%2C+TX&amp;travelmode=driving" target="_blank" rel="noopener">&#128663; Open full-day navigation</a>
+      </div></details>
+      <div class="row"><div class="t">7:30 AM<small>CST</small></div><div class="c"><p><b>Leave Katy, TX</b></p><p class="sub">Fuel up and check tire pressure before heading out.</p></div></div>
+      <div class="row"><div class="t">Evening<small>CST</small></div><div class="c"><p><b>Overnight in Amarillo, TX</b> <span class="badge ahead">Book ahead</span></p><p class="sub">Holiday Inn Express, Amarillo.</p></div></div>
+    </article>
+
+    <!-- Dec 18 -->
+    <article class="day" id="d18">
+      <div class="day-head"><div class="date"><small>Dec</small><b>18</b></div><div><h3>Amarillo to Copper</h3><p>Friday &middot; Drive day 2</p></div></div>
+      <details class="route"><summary>Route map</summary><div class="route-body">
+        <div class="map" data-route="amarillo,englewood,silverthorne,copper" data-color="#c26a2e"></div>
+        <a class="btn alt" href="https://www.google.com/maps/dir/?api=1&amp;origin=Amarillo%2C+TX&amp;waypoints=3542+S+Fox+St%2C+Englewood%2C+CO+80110%7C241+Summit+Pl%2C+Silverthorne%2C+CO+80498&amp;destination=509+Copper+Road%2C+Copper+Mountain%2C+CO+80443&amp;travelmode=driving" target="_blank" rel="noopener">&#128663; Open full-day navigation</a>
+      </div></details>
+      <div class="row"><div class="t">Morning<small>CST to MST</small></div><div class="c"><p><b>Drive Amarillo to Englewood, CO</b></p><p class="sub">You cross into Mountain Time. Clocks go back 1 hour.</p></div></div>
+      <div class="row"><div class="t">11 AM&ndash;9 PM<small>MST, restaurant hours</small></div><div class="c"><p><b>Lunch at <a href="https://maps.app.goo.gl/nptG4sLe6kLBGypS6" target="_blank" rel="noopener">Bistro King Asian Restaurant</a></b></p><p class="sub">3542 S Fox St, Englewood, CO 80110</p></div></div>
+      <div class="row"><div class="t">Afternoon<small>MST</small></div><div class="c"><p><b>Pick up rentals</b> <span class="badge ahead">Book ahead</span></p><p class="sub"><a href="https://www.google.com/maps/search/?api=1&amp;query=Virgin+Islands+Ski+Rental+241+Summit+Pl+Silverthorne+CO+80498" target="_blank" rel="noopener">Virgin Islands Ski Rental</a>, 241 Summit Pl, Silverthorne, CO 80498 &middot; <a href="tel:+19704686655">(970) 468-6655</a></p></div></div>
+      <div class="row"><div class="t">After 4:00 PM<small>MST</small></div><div class="c"><p><b>Check in at Copper Mountain Lodging</b> <span class="badge booked">Booked</span></p><p class="sub"><a href="https://www.google.com/maps/search/?api=1&amp;query=509+Copper+Road+Copper+Mountain+CO+80443" target="_blank" rel="noopener">509 Copper Road</a>. Pick up the lift tickets at the check-in desk.</p></div></div>
+      <div class="row"><div class="t">Evening<small>MST</small></div><div class="c"><p><b>Groceries and dinner</b></p></div></div>
+    </article>
+
+    <!-- Dec 19 -->
+    <article class="day" id="d19">
+      <div class="day-head"><div class="date"><small>Dec</small><b>19</b></div><div><h3>Ski day 1</h3><p>Saturday &middot; Gavin's lesson</p></div></div>
+      <details class="route"><summary>Map</summary><div class="route-body">
+        <div class="map" data-route="copper" data-color="#1f4d45"></div>
+        <a class="btn alt" href="https://www.google.com/maps/search/?api=1&amp;query=Copper+Mountain+Resort+CO" target="_blank" rel="noopener">&#128205; Open Copper Mountain in Maps</a>
+      </div></details>
+      <div class="row"><div class="t">Morning<small>MST</small></div><div class="c"><p><b>Gavin: Adult First Time Full Day Snowboard Lesson</b> <span class="badge booked">Booked</span></p><p class="sub">Meeting time and place are in the lesson confirmation email.</p></div></div>
+      <div class="row"><div class="t">All day<small>MST</small></div><div class="c"><p><b>Everyone else skis</b></p><p class="sub">Easy runs to warm up, lunch on the mountain.</p></div></div>
+    </article>
+
+    <!-- Dec 20 -->
+    <article class="day" id="d20">
+      <div class="day-head"><div class="date"><small>Dec</small><b>20</b></div><div><h3>Ski day 2</h3><p>Sunday</p></div></div>
+      <details class="route"><summary>Map</summary><div class="route-body">
+        <div class="map" data-route="copper" data-color="#1f4d45"></div>
+        <a class="btn alt" href="https://www.google.com/maps/search/?api=1&amp;query=Copper+Mountain+Resort+CO" target="_blank" rel="noopener">&#128205; Open Copper Mountain in Maps</a>
+      </div></details>
+      <div class="row"><div class="t">All day<small>MST</small></div><div class="c"><p><b>Ski at Copper</b></p><p class="sub">Explore more of the mountain.</p></div></div>
+    </article>
+
+    <!-- Dec 21 -->
+    <article class="day" id="d21">
+      <div class="day-head"><div class="date"><small>Dec</small><b>21</b></div><div><h3>Flexible day <span class="badge flex">Flexible</span></h3><p>Monday</p></div></div>
+      <details class="route"><summary>Route map (hot springs option)</summary><div class="route-body">
+        <div class="map" data-route="copper,glenwood" data-color="#7a5fa8" data-dash="1"></div>
+        <a class="btn alt" href="https://www.google.com/maps/dir/?api=1&amp;origin=509+Copper+Road%2C+Copper+Mountain%2C+CO+80443&amp;waypoints=281+Centennial+St%2C+Glenwood+Springs%2C+CO+81601&amp;destination=509+Copper+Road%2C+Copper+Mountain%2C+CO+80443&amp;travelmode=driving" target="_blank" rel="noopener">&#128663; Open full-day navigation</a>
+      </div></details>
+      <div class="row"><div class="t">Option A<small>MST</small></div><div class="c"><p><b>Rest day at <a href="https://www.google.com/maps/search/?api=1&amp;query=Iron+Mountain+Hot+Springs+281+Centennial+St+Glenwood+Springs+CO+81601" target="_blank" rel="noopener">Iron Mountain Hot Springs</a></b> <span class="badge ahead">Check hours</span></p><p class="sub">281 Centennial St, Glenwood Springs, CO 81601 &middot; <a href="tel:+19709454766">(970) 945-4766</a>. Not booked. Decide after arriving. The drive is roughly 1.5 to 2 hours each way, so check <a href="https://www.cotrip.org/" target="_blank" rel="noopener">I-70 conditions</a> first.</p></div></div>
+      <div class="row"><div class="t">Option B<small>MST</small></div><div class="c"><p><b>Ski at Copper</b></p><p class="sub">Use a lift ticket day if the family prefers the mountain.</p></div></div>
+    </article>
+
+    <!-- Dec 22 -->
+    <article class="day" id="d22">
+      <div class="day-head"><div class="date"><small>Dec</small><b>22</b></div><div><h3>Ski day 3</h3><p>Tuesday &middot; Last night at Copper</p></div></div>
+      <details class="route"><summary>Map</summary><div class="route-body">
+        <div class="map" data-route="copper" data-color="#1f4d45"></div>
+        <a class="btn alt" href="https://www.google.com/maps/search/?api=1&amp;query=Copper+Mountain+Resort+CO" target="_blank" rel="noopener">&#128205; Open Copper Mountain in Maps</a>
+      </div></details>
+      <div class="row"><div class="t">All day<small>MST</small></div><div class="c"><p><b>Last day on the slopes</b></p></div></div>
+      <div class="row"><div class="t">Evening<small>MST</small></div><div class="c"><p><b>Pack up for an easy checkout</b></p></div></div>
+    </article>
+
+    <!-- Dec 23 -->
+    <article class="day" id="d23">
+      <div class="day-head"><div class="date"><small>Dec</small><b>23</b></div><div><h3>Check out and head home</h3><p>Wednesday</p></div></div>
+      <details class="route"><summary>Route map</summary><div class="route-body">
+        <div class="map" data-route="copper,silverthorne,englewood,amarillo,katy" data-color="#5b6b7a" data-dash="1"></div>
+        <a class="btn alt" href="https://www.google.com/maps/dir/?api=1&amp;origin=509+Copper+Road%2C+Copper+Mountain%2C+CO+80443&amp;waypoints=241+Summit+Pl%2C+Silverthorne%2C+CO+80498&amp;destination=Katy%2C+TX&amp;travelmode=driving" target="_blank" rel="noopener">&#128663; Open navigation home</a>
+      </div></details>
+      <div class="row"><div class="t">By 11:00 AM<small>MST</small></div><div class="c"><p><b>Check out of Copper Mountain Lodging</b></p></div></div>
+      <div class="row"><div class="t">Late morning<small>MST</small></div><div class="c"><p><b>Return rental gear</b></p><p class="sub">Virgin Islands Ski Rental, Silverthorne, on the way out of the mountains.</p></div></div>
+      <div class="row"><div class="t">Afternoon<small>MST</small></div><div class="c"><p><b>Drive toward Katy</b></p><p class="sub">Check <a href="https://www.cotrip.org/" target="_blank" rel="noopener">road conditions</a> before leaving.</p></div></div>
+    </article>
+  </section>
+
+  <!-- TO DO -->
+  <section id="todo">
+    <h2><span class="ico" aria-hidden="true">&#128221;</span>To Do</h2>
+    <div class="card">
+      <ul class="plain">
+        <li>Book Holiday Inn Express in Amarillo for Thu, Dec 17.</li>
+        <li>Reserve ski and snowboard rentals at Virgin Islands Ski Rental, <a href="tel:+19704686655">(970) 468-6655</a>. Confirm Friday Dec 18 pickup hours. Booking online is 20% off, but the discount does not apply Dec 24 to Jan 1.</li>
+        <li>Confirm Gavin's lesson meeting time and place in the confirmation email.</li>
+        <li>Confirm which 3 of the 5 days the lift tickets cover.</li>
+        <li>Dec 21: decide the plan after arriving. If going to the hot springs, check winter hours and whether reservations are needed.</li>
+        <li>Plan where to stay on the night of Dec 23 for the drive home.</li>
+        <li>Add group phone numbers to the contacts below.</li>
+      </ul>
     </div>
-    <p class="note">Resort websites sometimes rearrange their pages. If a link lands on the wrong page, use the menu on the resort's home page.</p>
+  </section>
+
+  <!-- PACKING -->
+  <section id="packing">
+    <h2><span class="ico" aria-hidden="true">&#127935;</span>Gear &amp; Packing</h2>
+    <div class="card pack">
+      <div>
+        <h3>Layers &amp; clothing</h3>
+        <ul>
+          <li>Base layers (top and bottom)</li>
+          <li>Mid layers (fleece or puffy)</li>
+          <li>Waterproof ski jacket</li>
+          <li>Ski pants or bibs</li>
+          <li>Ski socks, 3+ pairs, no cotton</li>
+          <li>Casual clothes and sweaters for evenings</li>
+          <li>Snow boots for walking around</li>
+        </ul>
+      </div>
+      <div>
+        <h3>On the mountain</h3>
+        <ul>
+          <li>Helmets for everyone</li>
+          <li>Goggles</li>
+          <li>Gloves or mittens, plus a spare pair</li>
+          <li>Neck gaiter or balaclava</li>
+          <li>Hand and toe warmers</li>
+          <li>Adult 3-Day lift tickets, picked up at the check-in desk</li>
+          <li>Small backpack for snacks and water</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Health &amp; comfort</h3>
+        <ul>
+          <li>Sunscreen (SPF 30+) and lip balm</li>
+          <li>Sunglasses</li>
+          <li>Moisturizer and water bottles (altitude is dry)</li>
+          <li>Swimsuits and towels (hot springs option)</li>
+          <li>Medications and basic first aid</li>
+          <li>Pain relievers for sore legs</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Road trip</h3>
+        <ul>
+          <li>IDs</li>
+          <li>Phone chargers and a power bank</li>
+          <li>Snow chains or traction check for the car</li>
+          <li>Snacks, games and books for the road</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESORT -->
+  <section id="resort">
+    <h2><span class="ico" aria-hidden="true">&#127956;&#65039;</span>Resort Info</h2>
+    <div class="links">
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-area-maps/winter-trail-map/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#128506;&#65039;</span><span><strong>Trail Map</strong><small>Terrain and lift layout</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-lift-info/winter-trail-report/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#128673;</span><span><strong>Lift &amp; Trail Status</strong><small>What's open today</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-card" href="https://www.coppercolorado.com/the-mountain/trail-area-maps/tracker-app/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#128241;</span><span><strong>Copper Mountain App</strong><small>Live trail tracking</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-card" href="https://forecast.weather.gov/MapClick.php?lat=39.4817&amp;lon=-106.1507" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#127784;&#65039;</span><span><strong>Weather Forecast</strong><small>National Weather Service</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-card" href="https://www.cotrip.org/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#128663;</span><span><strong>Road Conditions</strong><small>CDOT live traffic and closures</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="link-card" href="https://www.coppercolorado.com/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">&#127968;</span><span><strong>Copper Mountain</strong><small>Tickets, rentals, dining</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
   </section>
 
   <!-- CONTACTS -->
   <section id="contacts">
-    <h2><span class="ico" aria-hidden="true">📞</span>Emergency &amp; Group Contacts</h2>
+    <h2><span class="ico" aria-hidden="true">&#128222;</span>Emergency &amp; Contacts</h2>
     <div class="card">
-      <div class="contact emergency">
-        <div class="who">Emergency<span class="role">Police, fire, ambulance</span></div>
-        <a class="tel" href="tel:911">Call 911</a>
-      </div>
-      <div class="contact">
-        <div class="who">Copper Lodging<span class="role">Reservations &amp; lodging help &middot; 866-841-2549</span></div>
-        <a class="tel" href="tel:+18668412549">Call</a>
-      </div>
-      <div class="contact">
-        <div class="who"><span class="todo">Name: trip organizer</span><span class="role">Group lead</span></div>
-        <a class="tel" href="tel:">Call</a>
-      </div>
-      <div class="contact">
-        <div class="who"><span class="todo">Name: family member</span><span class="role">Group member</span></div>
-        <a class="tel" href="tel:">Call</a>
-      </div>
-      <div class="contact">
-        <div class="who"><span class="todo">Name: emergency contact at home</span><span class="role">Not on the trip</span></div>
-        <a class="tel" href="tel:">Call</a>
-      </div>
-      <p class="note">Set a meeting spot on the mountain each morning in case anyone gets separated, and save the Copper Ski Patrol number from your trail map in your phone.</p>
+      <div class="contact emergency"><div class="who">Emergency<span class="role">Police, fire, ambulance</span></div><a class="tel" href="tel:911">Call 911</a></div>
+      <div class="contact"><div class="who">Copper Mountain Lodging<span class="role">Reservations and lodging help</span></div><a class="tel" href="tel:+18668412549">Call</a></div>
+      <div class="contact"><div class="who">Virgin Islands Ski Rental<span class="role">Silverthorne, rentals</span></div><a class="tel" href="tel:+19704686655">Call</a></div>
+      <div class="contact"><div class="who">Iron Mountain Hot Springs<span class="role">Glenwood Springs</span></div><a class="tel" href="tel:+19709454766">Call</a></div>
     </div>
   </section>
 
 </main>
 
-<footer>Have a great trip! ⛷️</footer>
+<footer>All times show their time zone. CST is Central Standard Time (UTC&minus;6) in Katy and Amarillo. MST is Mountain Standard Time (UTC&minus;7) in Colorado.</footer>
 
 <script>
 (function () {
-  // ---- Countdown ----
-  // Update TRIP_START to the real arrival date (YYYY-MM-DD) to turn this on.
-  var TRIP_START = "2026-12-18";
-  var cd = document.getElementById('countdown');
-  if (TRIP_START) {
-    var days = Math.ceil((new Date(TRIP_START + 'T00:00:00') - new Date()) / 86400000);
-    cd.textContent = days > 1 ? days + ' days to go' : days === 1 ? 'Tomorrow!' : days === 0 ? 'Today!' : 'Trip in progress';
+  'use strict';
+
+  /* ---------- Up next: countdown anchored to absolute UTC instants ---------- */
+  var COPPER = 'https://www.google.com/maps/search/?api=1&query=509+Copper+Road+Copper+Mountain+CO+80443';
+  var EVENTS = [
+    { t: Date.UTC(2026, 11, 17, 13, 30), title: 'Leave Katy, TX',
+      when: 'Thu, Dec 17 · 7:30 AM CST (UTC−6)',
+      map: 'https://www.google.com/maps/search/?api=1&query=Katy%2C+TX' },
+    { t: Date.UTC(2026, 11, 18, 23, 0), title: 'Lodging check-in opens and lift ticket pickup',
+      when: 'Fri, Dec 18 · 4:00 PM MST (UTC−7)', map: COPPER },
+    { t: Date.UTC(2026, 11, 23, 18, 0), title: 'Check-out deadline',
+      when: 'Wed, Dec 23 · 11:00 AM MST (UTC−7)', map: COPPER }
+  ];
+
+  function $(id) { return document.getElementById(id); }
+  function localStr(ms) {
+    try {
+      return new Date(ms).toLocaleString(undefined, { weekday: 'short', month: 'short', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+    } catch (e) { return ''; }
   }
 
-  // ---- Packing checklist (saved per device) ----
-  var KEY = 'copper-ski-checklist-v1';
-  var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
-  var saved = {};
-  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  var shown = -1;
+  function tick() {
+    var now = Date.now(), idx = -1, i;
+    for (i = 0; i < EVENTS.length; i++) { if (EVENTS[i].t > now) { idx = i; break; } }
+    if (idx === -1) {
+      $('un-title').textContent = 'Trip complete';
+      $('un-when').textContent = 'Thanks for coming along.';
+      $('un-local').textContent = '';
+      $('cd').style.display = 'none';
+      $('un-map').style.display = 'none';
+      return;
+    }
+    var ev = EVENTS[idx];
+    if (idx !== shown) {
+      shown = idx;
+      $('un-title').textContent = ev.title;
+      $('un-when').textContent = ev.when;
+      var l = localStr(ev.t);
+      $('un-local').textContent = l ? 'In your time zone: ' + l : '';
+      $('un-map').setAttribute('href', ev.map);
+    }
+    var s = Math.floor((ev.t - now) / 1000);
+    $('cd-d').textContent = Math.floor(s / 86400);
+    $('cd-h').textContent = Math.floor((s % 86400) / 3600);
+    $('cd-m').textContent = Math.floor((s % 3600) / 60);
+    $('cd-s').textContent = s % 60;
+  }
+  tick();
+  setInterval(tick, 1000);
 
-  function idFor(box) {
-    var group = box.closest('.group').getAttribute('data-group');
-    return group + '|' + box.nextElementSibling.textContent;
+  /* ---------- Hand-drawn route maps (inline SVG, no tiles) ---------- */
+  var N = {
+    katy:         { x: 292, y: 450, l: 'Katy, TX',               lx: 292, ly: 472, a: 'middle' },
+    amarillo:     { x: 190, y: 340, l: 'Amarillo, TX',           lx: 203, ly: 344, a: 'start' },
+    englewood:    { x: 172, y: 215, l: 'Englewood (lunch)',      lx: 186, ly: 219, a: 'start' },
+    silverthorne: { x: 128, y: 160, l: 'Silverthorne (rentals)', lx: 142, ly: 164, a: 'start' },
+    copper:       { x: 100, y: 125, l: 'Copper Mountain',        lx: 114, ly: 122, a: 'start' },
+    glenwood:     { x: 38,  y: 100, l: 'Glenwood Springs',       lx: 38,  ly: 82,  a: 'start' }
+  };
+  var ALL = ['katy', 'amarillo', 'englewood', 'silverthorne', 'copper', 'glenwood'];
+
+  function seg(a, b, off, k) {
+    var x1 = a.x, y1 = a.y, x2 = b.x, y2 = b.y;
+    var dx = x2 - x1, dy = y2 - y1, len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var nx = -dy / len, ny = dx / len;
+    var amp = Math.min(10, len * 0.12) * (k % 2 ? -1 : 1);
+    x1 += nx * off; y1 += ny * off; x2 += nx * off; y2 += ny * off;
+    var cx = (x1 + x2) / 2 + nx * amp, cy = (y1 + y2) / 2 + ny * amp;
+    return 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1);
   }
-  function save() {
-    var state = {};
-    boxes.forEach(function (b) { if (b.checked) state[idFor(b)] = 1; });
-    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  function route(ids, color, dash, off, sw) {
+    var d = '', i;
+    for (i = 0; i < ids.length - 1; i++) { d += seg(N[ids[i]], N[ids[i + 1]], off, i); }
+    return '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="' + sw + '" stroke-linecap="round" stroke-linejoin="round"' +
+      (dash ? ' stroke-dasharray="' + (sw * 2) + ' ' + (sw * 1.8) + '"' : '') + '/>';
   }
-  function update() {
-    var done = boxes.filter(function (b) { return b.checked; }).length;
-    var pct = boxes.length ? Math.round(done / boxes.length * 100) : 0;
-    document.getElementById('progress-text').textContent = done + ' of ' + boxes.length + ' packed';
-    document.getElementById('progress-pct').textContent = pct + '%';
-    document.getElementById('bar-fill').style.width = pct + '%';
-    document.getElementById('bar').setAttribute('aria-valuenow', pct);
+  function ridge(fs) {
+    return '<path d="M16 62 L52 30 L78 50 L112 14 L150 52 L196 30 L238 60" fill="none" stroke="#b9cfdd" stroke-width="' + (fs * 0.2) + '" stroke-linecap="round" stroke-linejoin="round"/>' +
+           '<path d="M104 14 L112 14 L119 22" fill="none" stroke="#e8f2f8" stroke-width="' + (fs * 0.35) + '" stroke-linecap="round"/>';
+  }
+  function node(id, fs, strong, label) {
+    var n = N[id], r = strong ? fs * 0.5 : fs * 0.28;
+    var s = '<circle cx="' + n.x + '" cy="' + n.y + '" r="' + r + '" fill="' + (strong ? '#12304a' : '#9db6c7') + '" stroke="#fff" stroke-width="' + (fs * 0.15) + '"/>';
+    if (label) { s += '<text x="' + n.lx + '" y="' + n.ly + '" font-size="' + fs + '" text-anchor="' + n.a + '"' + (strong ? ' font-weight="700"' : '') + '>' + n.l + '</text>'; }
+    return s;
+  }
+  function viewBox(ids, fs) {
+    var minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9, i, n, w;
+    for (i = 0; i < ids.length; i++) {
+      n = N[ids[i]]; w = n.l.length * fs * 0.55;
+      var lx0 = n.a === 'middle' ? n.lx - w / 2 : (n.a === 'end' ? n.lx - w : n.lx);
+      minx = Math.min(minx, n.x, lx0); maxx = Math.max(maxx, n.x, lx0 + w);
+      miny = Math.min(miny, n.y, n.ly - fs); maxy = Math.max(maxy, n.y, n.ly + fs * 0.4);
+    }
+    var pad = 22; minx -= pad; miny -= pad; maxx += pad; maxy += pad;
+    var W = maxx - minx, H = maxy - miny;
+    if (W < 200) { minx -= (200 - W) / 2; W = 200; }
+    if (H < 130) { miny -= (130 - H) / 2; H = 130; }
+    return [minx, miny, W, H];
+  }
+  function drawMap(el, ids, color, dash, full) {
+    var vb, fs, sw, i, out = '';
+    if (full) { vb = [0, 0, 360, 500]; fs = 12; sw = 4; }
+    else { fs = 12; vb = viewBox(ids, fs); fs = Math.max(10, fs * vb[2] / 340); sw = fs / 3; vb = viewBox(ids, fs); }
+    out += '<svg viewBox="' + vb.join(' ') + '" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">';
+    out += ridge(fs);
+    if (full) {
+      out += route(['katy', 'amarillo'], '#4a90b8', false, 0, sw);
+      out += route(['amarillo', 'englewood', 'silverthorne', 'copper'], '#c26a2e', false, 0, sw);
+      out += route(['copper', 'glenwood'], '#7a5fa8', true, 0, sw);
+      out += route(['copper', 'silverthorne', 'englewood', 'amarillo', 'katy'], '#5b6b7a', true, 7, sw * 0.7);
+      for (i = 0; i < ALL.length; i++) { out += node(ALL[i], fs, true, true); }
+      out += '<text x="' + (N.amarillo.lx) + '" y="' + (N.amarillo.ly + 15) + '" font-size="' + (fs * 0.92) + '">☾ Night 1 · Dec 17</text>';
+      out += '<text x="' + (N.copper.lx) + '" y="' + (N.copper.ly + 14) + '" font-size="' + (fs * 0.92) + '">☾ Nights 2–6 · Dec 18–22</text>';
+    } else {
+      for (i = 0; i < ALL.length; i++) { if (ids.indexOf(ALL[i]) === -1) { out += node(ALL[i], fs, false, false); } }
+      if (ids.length > 1) { out += route(ids, color, dash, 0, sw); }
+      for (i = 0; i < ids.length; i++) { out += node(ids[i], fs, true, true); }
+      if (ids.length === 1) {
+        var c = N[ids[0]];
+        out += '<path d="M' + (c.x + 4) + ' ' + (c.y - fs * 1.6) + ' l' + (fs * 1.2) + ' ' + (fs * 1.6) + ' l-' + (fs * 2.4) + ' 0 z" fill="#e8f2f8" stroke="' + color + '" stroke-width="' + (fs * 0.18) + '"/>';
+      }
+    }
+    out += '</svg>';
+    el.innerHTML = out;
   }
 
-  boxes.forEach(function (b) {
-    b.checked = !!saved[idFor(b)];
-    b.addEventListener('change', function () { save(); update(); });
-  });
-  document.getElementById('reset').addEventListener('click', function () {
-    if (!confirm('Uncheck everything on your list?')) return;
-    boxes.forEach(function (b) { b.checked = false; });
-    save(); update();
-  });
-  update();
+  drawMap($('overview-map'), ALL, '', false, true);
+  var maps = document.querySelectorAll('.map[data-route]'), k;
+  for (k = 0; k < maps.length; k++) {
+    drawMap(maps[k], maps[k].getAttribute('data-route').split(','), maps[k].getAttribute('data-color'), maps[k].getAttribute('data-dash') === '1', false);
+  }
 })();
 </script>
 </body>
