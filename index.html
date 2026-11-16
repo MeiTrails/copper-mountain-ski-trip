@@ -136,8 +136,19 @@
   ul.plain li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 11px; height: 11px; border: 2px solid var(--glacier); border-radius: 50%; }
   .pack { display: grid; gap: 18px; }
   .pack h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 6px; }
-  .pack ul { margin: 0; padding-left: 1.2em; }
-  .pack li { padding: 3px 0; }
+  .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+  .bar { height: 10px; background: var(--ice); border-radius: 999px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--glacier), var(--pine)); border-radius: 999px; transition: width .25s ease; }
+  .plist { display: block; }
+  .check { display: flex; align-items: center; gap: 14px; min-height: 48px; padding: 6px 2px; border-bottom: 1px solid var(--line); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .plist .check:last-child { border-bottom: 0; }
+  .check input { -webkit-appearance: none; appearance: none; flex: none; width: 26px; height: 26px; margin: 0; border-radius: 8px; border: 2px solid #9db6c7; background: #fff; display: grid; place-content: center; transition: background .15s, border-color .15s; }
+  .check input::after { content: ""; width: 12px; height: 7px; border-left: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(-45deg) scale(0); margin-top: -3px; transition: transform .12s ease; }
+  .check input:checked { background: var(--pine); border-color: var(--pine); }
+  .check input:checked::after { transform: rotate(-45deg) scale(1); }
+  .check input:focus-visible { outline: 3px solid var(--glacier); outline-offset: 2px; }
+  .check span { font-size: 1.02rem; }
+  .check input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: #9db6c7; }
 
   /* ---------- Links & contacts ---------- */
   .links { display: grid; gap: 10px; }
@@ -351,51 +362,53 @@
   <section id="packing">
     <h2><span class="ico" aria-hidden="true">&#127935;</span>Gear &amp; Packing</h2>
     <div class="card pack">
+      <div class="progress-wrap"><div class="progress-label"><span id="pk-text">0 of 0 packed</span><span id="pk-pct">0%</span></div><div class="bar" id="pk-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="pk-fill"></span></div></div>
       <div>
         <h3>Layers &amp; clothing</h3>
-        <ul>
-          <li>Base layers (top and bottom)</li>
-          <li>Mid layers (fleece or puffy)</li>
-          <li>Waterproof ski jacket</li>
-          <li>Ski pants or bibs</li>
-          <li>Ski socks, 3+ pairs, no cotton</li>
-          <li>Casual clothes and sweaters for evenings</li>
-          <li>Snow boots for walking around</li>
-        </ul>
+        <div class="plist">
+<label class="check"><input type="checkbox"><span>Base layers (top and bottom)</span></label>
+          <label class="check"><input type="checkbox"><span>Mid layers (fleece or puffy)</span></label>
+          <label class="check"><input type="checkbox"><span>Waterproof ski jacket</span></label>
+          <label class="check"><input type="checkbox"><span>Ski pants or bibs</span></label>
+          <label class="check"><input type="checkbox"><span>Ski socks, 3+ pairs, no cotton</span></label>
+          <label class="check"><input type="checkbox"><span>Casual clothes and sweaters for evenings</span></label>
+          <label class="check"><input type="checkbox"><span>Snow boots for walking around</span></label>
+        </div>
       </div>
       <div>
         <h3>On the mountain</h3>
-        <ul>
-          <li>Helmets for everyone</li>
-          <li>Goggles</li>
-          <li>Gloves or mittens, plus a spare pair</li>
-          <li>Neck gaiter or balaclava</li>
-          <li>Hand and toe warmers</li>
-          <li>Adult 3-Day lift tickets, picked up at the check-in desk</li>
-          <li>Small backpack for snacks and water</li>
-        </ul>
+        <div class="plist">
+<label class="check"><input type="checkbox"><span>Helmets for everyone</span></label>
+          <label class="check"><input type="checkbox"><span>Goggles</span></label>
+          <label class="check"><input type="checkbox"><span>Gloves or mittens, plus a spare pair</span></label>
+          <label class="check"><input type="checkbox"><span>Neck gaiter or balaclava</span></label>
+          <label class="check"><input type="checkbox"><span>Hand and toe warmers</span></label>
+          <label class="check"><input type="checkbox"><span>Adult 3-Day lift tickets, picked up at the check-in desk</span></label>
+          <label class="check"><input type="checkbox"><span>Small backpack for snacks and water</span></label>
+        </div>
       </div>
       <div>
         <h3>Health &amp; comfort</h3>
-        <ul>
-          <li>Sunscreen (SPF 30+) and lip balm</li>
-          <li>Sunglasses</li>
-          <li>Moisturizer and water bottles (altitude is dry)</li>
-          <li>Swimsuits and towels (hot springs option)</li>
-          <li>Medications and basic first aid</li>
-          <li>Pain relievers for sore legs</li>
-        </ul>
+        <div class="plist">
+<label class="check"><input type="checkbox"><span>Sunscreen (SPF 30+) and lip balm</span></label>
+          <label class="check"><input type="checkbox"><span>Sunglasses</span></label>
+          <label class="check"><input type="checkbox"><span>Moisturizer and water bottles (altitude is dry)</span></label>
+          <label class="check"><input type="checkbox"><span>Swimsuits and towels (hot springs option)</span></label>
+          <label class="check"><input type="checkbox"><span>Medications and basic first aid</span></label>
+          <label class="check"><input type="checkbox"><span>Pain relievers for sore legs</span></label>
+        </div>
       </div>
       <div>
         <h3>Road trip</h3>
-        <ul>
-          <li>IDs</li>
-          <li>Phone chargers and a power bank</li>
-          <li>Snow chains or traction check for the car</li>
-          <li>Snacks, games and books for the road</li>
-        </ul>
+        <div class="plist">
+<label class="check"><input type="checkbox"><span>IDs</span></label>
+          <label class="check"><input type="checkbox"><span>Phone chargers and a power bank</span></label>
+          <label class="check"><input type="checkbox"><span>Snow chains or traction check for the car</span></label>
+          <label class="check"><input type="checkbox"><span>Snacks, games and books for the road</span></label>
+        </div>
       </div>
     </div>
+    <p class="note">Checks are saved on your own phone, so everyone keeps their own list.</p>
   </section>
 
   <!-- RESORT -->
@@ -429,6 +442,30 @@
 <script>
 (function () {
   'use strict';
+
+  /* ---------- Packing checklist (saved on this device only) ---------- */
+  (function () {
+    var KEY = 'copper-ski-packing-v1', boxes = Array.prototype.slice.call(document.querySelectorAll('.check input')), saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    function idFor(b) { return b.closest('div.pack > div').querySelector('h3').textContent + '|' + b.nextElementSibling.textContent; }
+    function refresh() {
+      var done = boxes.filter(function (b) { return b.checked; }).length;
+      var pct = boxes.length ? Math.round(done / boxes.length * 100) : 0;
+      document.getElementById('pk-text').textContent = done + ' of ' + boxes.length + ' packed';
+      document.getElementById('pk-pct').textContent = pct + '%';
+      document.getElementById('pk-fill').style.width = pct + '%';
+      document.getElementById('pk-bar').setAttribute('aria-valuenow', pct);
+    }
+    boxes.forEach(function (b) {
+      b.checked = !!saved[idFor(b)];
+      b.addEventListener('change', function () {
+        var st = {}; boxes.forEach(function (x) { if (x.checked) { st[idFor(x)] = 1; } });
+        try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+        refresh();
+      });
+    });
+    refresh();
+  })();
 
   /* ---------- Up next: countdown anchored to absolute UTC instants ---------- */
   var COPPER = 'https://www.google.com/maps/search/?api=1&query=509+Copper+Road+Copper+Mountain+CO+80443';
